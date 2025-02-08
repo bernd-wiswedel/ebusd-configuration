@@ -1624,6 +1624,21 @@ namespace Hmu {
     cycles: cntstarts;
   }
 
+  /** default *r */
+  @base(MF, 0x14, 0x5)
+  model r_9 {
+    @maxLength(2)
+    value: IGN;
+  }
+
+  @inherit(r_9)
+  @ext(0x2b, 0x3, 0xff, 0xff)
+  model WaterThroughput {
+    /** current heating water flow rate in liters per hour */
+    @unit("l/h")
+    value: UIN;
+  }
+
   enum Values_state {
     ready: 0x01,
     error: 0x0b,
