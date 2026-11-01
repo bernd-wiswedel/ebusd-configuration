@@ -825,9 +825,9 @@ namespace Hmu {
 
   /** EEV-VI position */
   @inherit(rs)
-  @ext(0x16, 0x03, 0xff, 0xff)
+  @ext(0x16)
   model TestEEVVIPosition {
-    /** T.24 on VWF */
+    /** T.34 on VWF */
     value: percent0;
   }
 
@@ -901,7 +901,7 @@ namespace Hmu {
 
   /** circulation pump power, 255 = off */
   @inherit(rs)
-  @ext(0x05, 0x03, 0xff, 0xff)
+  @ext(0x05)
   model TestCirculationPump {
     /** T.48 on VWF */
     value: percent0;
@@ -909,7 +909,7 @@ namespace Hmu {
 
   /** brine pump power, 255 = off */
   @inherit(rs)
-  @ext(0x0e, 0x03, 0xff, 0xff)
+  @ext(0x0e)
   model TestBrinePumpPower {
     /** T.14 on VWF */
     value: percent0;
@@ -917,7 +917,7 @@ namespace Hmu {
 
   /** cooling active relay */
   @inherit(rs)
-  @ext(0x0a, 0x03, 0xff, 0xff)
+  @ext(0x0a)
   model TestCoolingActive {
     /** T.49 on VWF */
     value: onoff;
@@ -1003,12 +1003,11 @@ namespace Hmu {
     value: UIN;
   }
 
-  // Test menu values of brine/water heat pumps (VWF x7/4, HMU HW0403). On these devices the value is only
-  // returned when the request carries the payload 03 FF FF, so it is part of the id here.
+  // Test menu values of brine/water heat pumps (VWF x7/4, HMU HW0403). The 03FFFF payload comes from rs.
 
   /** alarm output */
   @inherit(rs)
-  @ext(0x2d, 0x03, 0xff, 0xff)
+  @ext(0x2d)
   model TestAlarmOutput {
     /** T.0.45 */
     @values(Values_TestAlarmOutput)
@@ -1027,7 +1026,7 @@ namespace Hmu {
 
   /** brine inlet temperature */
   @inherit(rs)
-  @ext(0x31, 0x03, 0xff, 0xff)
+  @ext(0x31)
   model TestBrineTempIn {
     /** T.97 on VWF */
     @unit("°C")
@@ -1037,7 +1036,7 @@ namespace Hmu {
 
   /** brine outlet temperature */
   @inherit(rs)
-  @ext(0x32, 0x03, 0xff, 0xff)
+  @ext(0x32)
   model TestBrineTempOut {
     /** T.98 on VWF */
     @unit("°C")
@@ -1047,7 +1046,7 @@ namespace Hmu {
 
   /** brine pressure */
   @inherit(rs)
-  @ext(0x33, 0x03, 0xff, 0xff)
+  @ext(0x33)
   model TestBrinePressure {
     /** T.101 on VWF */
     @unit("bar")
@@ -1181,7 +1180,7 @@ namespace Hmu {
 
   /** EEV-VI inlet temperature */
   @inherit(rs)
-  @ext(0x6e, 0x03, 0xff, 0xff)
+  @ext(0x6e)
   model TestEEVVIInletTemp {
     /** T.123 on VWF */
     @unit("°C")
@@ -1191,7 +1190,7 @@ namespace Hmu {
 
   /** EEV-VI outlet temperature */
   @inherit(rs)
-  @ext(0x6f, 0x03, 0xff, 0xff)
+  @ext(0x6f)
   model TestEEVVIOutletTemp {
     /** T.124 on VWF */
     @unit("°C")
@@ -1201,7 +1200,7 @@ namespace Hmu {
 
   /** cooling flow temperature */
   @inherit(rs)
-  @ext(0x70, 0x03, 0xff, 0xff)
+  @ext(0x70)
   model TestCoolingFlowTemp {
     /** T.80 on VWF */
     @unit("°C")
@@ -1211,7 +1210,7 @@ namespace Hmu {
 
   /** priority switch valve cooling */
   @inherit(rs)
-  @ext(0x78, 0x03, 0xff, 0xff)
+  @ext(0x78)
   model TestPrioritySwitchingValveCooling {
     /** T.03 on VWF */
     @values(Values_TestPrioritySwitchingValveCooling)
