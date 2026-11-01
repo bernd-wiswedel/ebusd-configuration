@@ -784,12 +784,18 @@ namespace Hmu {
     energy: energy;
   }
   // additions from PR 160 for HMU;0304;8802;0010019765
-  // Test menus on VWZ. EnableTest message needs to be sent before each of the read messages work.
+  // Test menus on VWZ. The value is only returned when the request carries 03FFFF after the id, so every
+  // read sends it. The EnableTest messages send the same request and are kept for compatibility only.
 
   /** default *rs for user level "service" */
   @auth("service")
   @base(MF, 0x14, 0x5)
   model rs {
+    @out
+    @maxLength(3)
+    @constValue("03FFFF")
+    sel: HEX;
+
     @maxLength(2)
     ign: IGN;
   }
