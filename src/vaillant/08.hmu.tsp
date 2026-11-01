@@ -1579,10 +1579,22 @@ namespace Hmu {
     value: fanspeedv;
   }
 
+  /** status code S.xx (not on HW 0403, see namespace Hw_0403) */
   @inherit(r_7)
   @ext(0x53, 0xd)
+  @condition(Id.Id.hw, "<0403", ">0403")
   model RunDataStatuscode {
     value: hmucode;
+  }
+
+  @condition(Id.Id.hw, "=0403")
+  namespace Hw_0403 {
+    /** status code S.xx shown on the display (flexoTHERM/flexoCOMPACT), register 0x0bba */
+    @inherit(r_7)
+    @ext(0xba, 0xb)
+    model RunDataStatuscode {
+      value: hmucode;
+    }
   }
 
   @inherit(r_7)
